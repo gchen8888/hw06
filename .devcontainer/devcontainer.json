@@ -1,0 +1,18 @@
+// Opens this assignment in GitHub Codespaces (Code -> Codespaces -> Create codespace) with the
+// course's Julia and a Jupyter kernel for the notebook, so it runs without installing anything.
+// The first start takes several minutes while the packages install.
+{
+  "name": "BEE 4750 assignment",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/julialang/devcontainer-features/julia:1": { "channel": "1.11.5" },
+    "ghcr.io/devcontainers/features/python:1": { "version": "3.12", "installJupyterlab": true }
+  },
+  "postCreateCommand": "julia --project=. -e 'using Pkg; Pkg.instantiate(); Pkg.build(\"IJulia\")'",
+  "customizations": {
+    "vscode": {
+      "extensions": ["julialang.language-julia", "ms-toolsai.jupyter", "ms-python.python"]
+    }
+  },
+  "hostRequirements": { "cpus": 2 }
+}
